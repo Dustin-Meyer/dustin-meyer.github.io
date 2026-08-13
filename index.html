@@ -3,26 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dustin Meyer - Data Analyst Portfolio</title>
+    <title>Dustin Meyer - Enterprise Business Intelligence Portfolio</title>
     <style>
         /* --- CORE STYLES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f4f4f4; }
         
-       header {
-    position: relative;
-    background-image: url('images/linkedin_banner.png');
-    background-size: cover;
-    background-position: center;
-    /* Maintain aspect ratio similar to a LinkedIn banner (4:1 ratio) */
-    width: 100%;
-    min-height: 250px;
-    height: 22vw; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-/* REMOVE OR COMMENT OUT header::before TO ELIMINATE THE DARK OVERLAY */
-/* header::before { content: ""; ... } */
+        header {
+            position: relative;
+            background-image: url('images/linkedin_banner.png');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
         header::before {
             content: "";
@@ -79,10 +75,50 @@
             transition: 0.3s;
         }
         .case-study-card:hover { box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15); }
-        .case-study-image img { width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd; }
         .case-study-content h3 { color: #764ba2; font-size: 1.5rem; margin-bottom: 1rem; }
         .details-box { background: #f8f9fa; padding: 1rem; border-radius: 8px; font-size: 0.95rem; border-left: 4px solid #667eea; margin-top: 1rem; }
-        .tag { background: #667eea; color: white; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 0.8rem; margin-right: 5px; }
+        .tag { background: #667eea; color: white; padding: 0.2rem 0.6rem; border-radius: 15px; font-size: 0.8rem; margin-right: 5px; display: inline-block; margin-bottom: 5px; }
+
+        /* --- IMAGE & HOVER OVERLAY STYLES --- */
+        .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .image-container img, .image-container-static img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .image-container-static {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .hover-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(102, 126, 234, 0.88);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.05rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .image-container:hover .hover-overlay {
+            opacity: 1;
+        }
 
         /* --- CONTACT SECTION --- */
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
@@ -113,13 +149,15 @@
     </nav>
 
     <div class="container">
+        <!-- ABOUT SECTION -->
         <section id="about">
             <h2>About Me</h2>
-            <p>I am a senior analytics and BI leader with over 8 years of experience engineering enterprise data pipelines, modernizing warehouse architectures, and designing executive decision-support systems. With a background spanning financial operations, cloud analytics (Snowflake, DuckDB, Python, SQL), and business intelligence leadership, I specialize in transforming fragmented data ecosystems into high-impact catalysts for sustainable growth.
-
-Currently completing an MBA in Business Intelligence, I focus on aligning technical execution with top-line business goals—delivering end-to-end data pipelines, interactive executive dashboards, and scalable analytics governance.</p>
+            <p>I am a senior analytics and BI leader with over 8 years of experience engineering enterprise data pipelines, modernizing warehouse architectures, and designing executive decision-support systems. With a background spanning financial operations, cloud analytics (Snowflake, DuckDB, Python, SQL), and business intelligence leadership, I specialize in transforming fragmented data ecosystems into high-impact catalysts for sustainable growth.</p>
+            <br>
+            <p>Currently completing an MBA in Business Intelligence, I focus on aligning technical execution with top-line business goals—delivering end-to-end data pipelines, interactive executive dashboards, and scalable analytics governance.</p>
         </section>
 
+        <!-- SKILLS SECTION -->
         <section id="skills">
             <h2>Executive & Technical Capabilities</h2>
             <div class="skills-grid">
@@ -162,101 +200,101 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
             </div>
         </section>
 
+        <!-- FEATURED PROJECTS SECTION -->
         <section id="projects">
             <h2>Featured Projects</h2>
             <div class="project-showcase">
+                
+                <!-- Project 1 -->
                 <div class="case-study-card">
-    <div class="case-study-image">
-        <a href="https://github.com/Honda101/rockies-fan-analytics" target="_blank" style="text-decoration: none;">
-            <div class="image-container">
-                <img src="https://github.com/Honda101/rockies-fan-analytics/blob/main/rockies_logo.png?raw=true" alt="Rockies dbt Lineage Graph">
-                <div class="hover-overlay">View Technical Documentation ↗</div>
-            </div>
-        </a>
-    </div>
+                    <div class="case-study-image">
+                        <a href="https://github.com/Honda101/rockies-fan-analytics" target="_blank" style="text-decoration: none;">
+                            <div class="image-container">
+                                <img src="https://github.com/Honda101/rockies-fan-analytics/blob/main/rockies_logo.png?raw=true" alt="Colorado Rockies Analytics">
+                                <div class="hover-overlay">View Technical Documentation ↗</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Colorado Rockies: Fan Retention & LTV Engine</h3>
+                        <div style="margin-bottom: 1rem;">
+                            <span class="tag">dbt Core</span>
+                            <span class="tag">Snowflake</span>
+                            <span class="tag">Analytics Engineering</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                        <p>Architected an automated fan engagement pipeline to transform raw ticket transaction data into actionable <b>Fan Lifetime Value (LTV)</b> and <b>Churn Risk</b> models.</p>
+                        <div class="details-box">
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
+                                    <span>Developed a <b>Predictive Churn Layer</b> identifying at-risk fans based on 180-day and 365-day recency windows, enabling proactive win-back marketing.</span>
+                                </li>
+                                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
+                                    <span>Engineered a <b>Fan Loyalty Segmentation</b> engine (Super Fan, Frequent, Occasional) to drive targeted high-margin premium seating upsells.</span>
+                                </li>
+                                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
+                                    <span>Established <b>Hardened Data Governance</b> using dbt schema testing (Unique, Not_Null, Accepted_Values) to ensure 100% accuracy for Revenue Team reporting.</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start;">
+                                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
+                                    <span>Implemented an <b>A/B Testing Framework</b> to measure revenue lift, validating a <b>12.8% increase in fan spend</b> through targeted merchandise incentives.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="case-study-content">
-        <h3>Colorado Rockies: Fan Retention & LTV Engine</h3>
-        <div style="margin-bottom: 1rem;">
-            <span class="tag">dbt Core</span>
-            <span class="tag">Snowflake</span>
-            <span class="tag">Analytics Engineering</span>
-            <span class="tag">GitHub</span>
-        </div>
-        
-        <p>Architected an automated fan engagement pipeline to transform raw ticket transaction data into actionable <b>Fan Lifetime Value (LTV)</b> and <b>Churn Risk</b> models.</p>
-        
-        <div class="details-box">
-            <ul style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
-                    <span>Developed a <b>Predictive Churn Layer</b> identifying at-risk fans based on 180-day and 365-day recency windows, enabling proactive win-back marketing.</span>
-                </li>
-                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
-                    <span>Engineered a <b>Fan Loyalty Segmentation</b> engine (Super Fan, Frequent, Occasional) to drive targeted high-margin premium seating upsells.</span>
-                </li>
-                <li style="display: flex; align-items: flex-start;">
-                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
-                    <span>Established <b>Hardened Data Governance</b> using dbt schema testing (Unique, Not_Null, Accepted_Values) to ensure 100% accuracy for Revenue Team reporting.</span>
-                </li>
-                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
-                    <span>Implemented an <b>A/B Testing Framework</b> to measure revenue lift, validating a <b>12.8% increase in fan spend</b> through targeted merchandise incentives.</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+                <!-- Project 2 -->
                 <div class="case-study-card">
-    <div class="case-study-image">
-        <a href="https://github.com/Honda101/modern-data-stack-retail" target="_blank" style="text-decoration: none;">
-            <div class="image-container">
-                <img src="https://github.com/Honda101/modern-data-stack-retail/blob/main/images/dtblogodiagram.png?raw=true" alt="dbt Lineage Graph">
-                <div class="hover-overlay">View Technical Documentation ↗</div>
-            </div>
-        </a>
-    </div>
+                    <div class="case-study-image">
+                        <a href="https://github.com/Honda101/modern-data-stack-retail" target="_blank" style="text-decoration: none;">
+                            <div class="image-container">
+                                <img src="https://github.com/Honda101/modern-data-stack-retail/blob/main/images/dtblogodiagram.png?raw=true" alt="Enterprise Retail Intelligence">
+                                <div class="hover-overlay">View Technical Documentation ↗</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="case-study-content">
+                        <h3>Enterprise Retail Intelligence Pipeline</h3>
+                        <div style="margin-bottom: 1rem;">
+                            <span class="tag">dbt Cloud</span>
+                            <span class="tag">Snowflake</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                        <p>Architected an automated ELT pipeline to transform 1M+ rows of raw TPC-H retail data into a refined "Gold" layer for executive decision-making.</p>
+                        <div class="details-box">
+                            <ul style="list-style: none; padding-left: 0;">
+                                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
+                                    <span>Developed a <b>Medallion Architecture</b> (Staging, Intermediate, Marts) in Snowflake, improving data modularity and reducing redundant logic.</span>
+                                </li>
+                                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
+                                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
+                                    <span>Engineered automated <b>Customer Lifetime Value (LTV)</b> calculations at the transformation layer, providing a single source of truth for all downstream BI tools.</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start;">
+                                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
+                                    <span>Implemented <b>Data Governance</b> through automated schema testing (Unique, Not_Null) and version-controlled documentation to ensure 100% data integrity.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-    <div class="case-study-content">
-        <h3>Enterprise Retail Intelligence Pipeline</h3>
-        <div style="margin-bottom: 1rem;">
-            <span class="tag">dbt Cloud</span>
-            <span class="tag">Snowflake</span>
-            <span class="tag">SQL</span>
-            <span class="tag">GitHub</span>
-        </div>
-        
-        <p>Architected an automated ELT pipeline to transform 1M+ rows of raw TPC-H retail data into a refined "Gold" layer for executive decision-making.</p>
-        
-        <div class="details-box">
-            <ul style="list-style: none; padding-left: 0;">
-                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
-                    <span>Developed a <b>Medallion Architecture</b> (Staging, Intermediate, Marts) in Snowflake, improving data modularity and reducing redundant logic.</span>
-                </li>
-                <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
-                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
-                    <span>Engineered automated <b>Customer Lifetime Value (LTV)</b> calculations at the transformation layer, providing a single source of truth for all downstream BI tools.</span>
-                </li>
-                <li style="display: flex; align-items: flex-start;">
-                    <span style="color: #667eea; margin-right: 12px; font-weight: bold;">•</span>
-                    <span>Implemented <b>Data Governance</b> through automated schema testing (Unique, Not_Null) and version-controlled documentation to ensure 100% data integrity.</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
+                <!-- Project 3 -->
                 <div class="case-study-card">
                     <div class="case-study-image">
                         <a href="https://public.tableau.com/views/USOilHeatmaps/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" style="text-decoration: none;">
                             <div class="image-container">
-                                <img src="images/Oil_Dashbaord_Tall_Final.png" alt="Oil Production Dashboard">
+                                <img src="images/Oil_Dashbaord_Tall_Final.png" alt="US Oil Production Dashboard">
                                 <div class="hover-overlay">View Live Dashboard ↗</div>
                             </div>
                         </a>
                     </div>
-                
                     <div class="case-study-content">
                         <h3>US Oil Production Analysis</h3>
                         <div style="margin-bottom: 1rem;">
@@ -264,9 +302,7 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                             <span class="tag">Python</span>
                             <span class="tag">Tableau</span>
                         </div>
-                        
                         <p>A case study on beautiful dashboard design while proving great detail at a glance.</p>
-                        
                         <div class="details-box">
                             <ul style="list-style: none; padding-left: 0;">
                                 <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
@@ -286,16 +322,16 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                     </div>
                 </div>
 
+                <!-- Project 4 -->
                 <div class="case-study-card">
                     <div class="case-study-image">
                         <a href="https://public.tableau.com/views/RVOHealth_TestViz/UserProfile?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" style="text-decoration: none;">
                             <div class="image-container">
-                                <img src="images/Website_Traffic_Dashboard_Final.png" alt="Oil Production Dashboard">
+                                <img src="images/Website_Traffic_Dashboard_Final.png" alt="Website Traffic Dashboard">
                                 <div class="hover-overlay">View Live Dashboard ↗</div>
                             </div>
                         </a>
                     </div>
-                
                     <div class="case-study-content">
                         <h3>Website Traffic Analysis</h3>
                         <div style="margin-bottom: 1rem;">
@@ -303,9 +339,7 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                             <span class="tag">Python</span>
                             <span class="tag">Tableau</span>
                         </div>
-                        
                         <p>Turning complex datasets into visually stunning, actionable insights that drive business growth.</p>
-                        
                         <div class="details-box">
                             <ul style="list-style: none; padding-left: 0;">
                                 <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
@@ -325,16 +359,16 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                     </div>
                 </div>
 
+                <!-- Project 5 -->
                 <div class="case-study-card">
                     <div class="case-study-image">
                         <a href="https://lookerstudio.google.com/reporting/9e326c6b-b877-43ae-b1d5-f33d3c5820e8" target="_blank" style="text-decoration: none;">
                             <div class="image-container">
-                                <img src="images/Subscription_Dashboard_Final.png" alt="Oil Production Dashboard">
+                                <img src="images/Subscription_Dashboard_Final.png" alt="Subscription Intelligence Dashboard">
                                 <div class="hover-overlay">View Live Dashboard ↗</div>
                             </div>
                         </a>
                     </div>
-                
                     <div class="case-study-content">
                         <h3>Automated Subscription Intelligence Platform</h3>
                         <div style="margin-bottom: 1rem;">
@@ -342,9 +376,7 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                             <span class="tag">Snowflake</span>
                             <span class="tag">Looker</span>
                         </div>
-                        
                         <p>Architected a scalable data pipeline to transform raw subscription logs into real-time executive insights for recurring revenue growth.</p>
-                        
                         <div class="details-box">
                             <ul style="list-style: none; padding-left: 0;">
                                 <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
@@ -364,16 +396,16 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                     </div>
                 </div>
 
+                <!-- Project 6 -->
                 <div class="case-study-card">
                     <div class="case-study-image">
                         <a href="https://public.tableau.com/views/HooniganTransformationOfficeLiquidityModel-POC/HooniganGroup?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" target="_blank" style="text-decoration: none;">
                             <div class="image-container">
-                                <img src="images/Hoonigan_Dashboard_Final.png" alt="Oil Production Dashboard">
+                                <img src="images/Hoonigan_Dashboard_Final.png" alt="Integrated Commerce & Operations Dashboard">
                                 <div class="hover-overlay">View Live Dashboard ↗</div>
                             </div>
                         </a>
                     </div>
-                
                     <div class="case-study-content">
                         <h3>Integrated Commerce & Operations Intelligence Hub</h3>
                         <div style="margin-bottom: 1rem;">
@@ -381,9 +413,7 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                             <span class="tag">Python</span>
                             <span class="tag">Tableau</span>
                         </div>
-                        
                         <p>Optimizing the intersection of high-growth e-commerce sales and large-scale inventory logistics to drive enterprise-wide operational efficiency.</p>
-                        
                         <div class="details-box">
                             <ul style="list-style: none; padding-left: 0;">
                                 <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
@@ -403,13 +433,13 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                     </div>
                 </div>
 
+                <!-- Project 7 -->
                 <div class="case-study-card">
                     <div class="case-study-image">
                         <div class="image-container-static">
                             <img src="images/Superstore_Business_Dashboard_PBI_Final.png" alt="Power BI Sales Analysis">
-                            </div>
+                        </div>
                     </div>
-                
                     <div class="case-study-content">
                         <h3>Sales Performance Analytics</h3>
                         <div style="margin-bottom: 1rem;">
@@ -417,9 +447,7 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                             <span class="tag">DAX</span>
                             <span class="tag">SQL</span>
                         </div>
-                        
                         <p>A comprehensive Power BI suite developed to track regional sales quotas and year-over-year growth metrics.</p>
-                        
                         <div class="details-box">
                             <ul style="list-style: none; padding-left: 0;">
                                 <li style="margin-bottom: 10px; display: flex; align-items: flex-start;">
@@ -438,9 +466,11 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
+        <!-- CONTACT SECTION -->
         <section id="contact">
             <h2>Get In Touch</h2>
             <div class="contact-grid">
@@ -459,9 +489,9 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
             </div>
         </section>
 
+        <!-- EDUCATION SECTION (Always placed at the bottom) -->
         <section id="education" style="margin-top: 5rem; border-top: 2px solid #667eea; padding-top: 3rem;">
             <h2 style="color: #667eea; margin-bottom: 2rem;">Education</h2>
-            
             <div class="education-container" style="display: flex; flex-direction: column; gap: 2rem;">
                 
                 <div style="border-left: 4px solid #764ba2; padding-left: 1.5rem;">
@@ -472,7 +502,7 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                     <p style="margin: 5px 0; font-weight: 600; color: #555;">Colorado State University</p>
                     <p style="color: #666; font-style: italic;">Emphasis in Business Intelligence & Data Analytics</p>
                 </div>
-        
+
                 <div style="border-left: 4px solid #ddd; padding-left: 1.5rem;">
                     <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
                         <h3 style="margin: 0; color: #333; font-size: 1.1rem;">Bachelor of Science in Business</h3>
@@ -480,10 +510,11 @@ Currently completing an MBA in Business Intelligence, I focus on aligning techni
                     </div>
                     <p style="margin: 5px 0; font-weight: 600; color: #555;">University of Northern Colorado</p>
                 </div>
-        
+
             </div>
         </section>
-    </div>
+
+    </div> <!-- End .container -->
 
     <footer>
         <p>&copy; 2026 Dustin Meyer. Built with passion for data.</p>
