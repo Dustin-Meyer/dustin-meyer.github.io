@@ -10,23 +10,24 @@
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f4f4f4; }
         
         header {
-            position: relative;
-            background-image: url('images/linkedin_banner.png');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+    background-image: url('images/linkedin_banner.png');
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
 
-        header::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.4);
-            z-index: 1;
-        }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
         header h1, header p { color: #ffffff; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6); position: relative; z-index: 2; }
         header p { font-size: 1.25rem; font-weight: 600; }
@@ -134,9 +135,9 @@
 </head>
 <body>
     <header>
-        <h1>Dustin Meyer</h1>
-        <p>Manager of Enterprise Business Intelligence & Data Strategy | Bridging the gap between executive business strategy and scalable data architecture</p>
-    </header>
+    <h1 class="sr-only">Dustin Meyer</h1>
+    <p class="sr-only">Manager of Enterprise Business Intelligence & Data Strategy</p>
+</header>
 
     <nav>
         <ul>
